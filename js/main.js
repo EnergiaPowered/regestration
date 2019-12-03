@@ -132,39 +132,39 @@ regForm.addEventListener("submit", function (e) {
     modalContent.querySelector('img').style.display = 'block';
 
     // send data to the api
-    fetch("https://vast-brushlands-53011.herokuapp.com/register", {
-      method: "post",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(sub_form)
-    })
-      .then(res => {
-        // show success message
-        modalContent.querySelector('img').style.display = 'none';
-        modalContent.querySelectorAll('p').forEach(p => {
-          p.style.display = 'none';
-        })
-        modalContent.insertAdjacentHTML("beforeend", `<p>${en.thanks}</p>`)
+    // fetch("https://vast-brushlands-53011.herokuapp.com/register", {
+    //   method: "post",
+    //   headers: {
+    //     Accept: "application/json, text/plain, */*",
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(sub_form)
+    // })
+    //   .then(res => {
+    //     // show success message
+    //     modalContent.querySelector('img').style.display = 'none';
+    //     modalContent.querySelectorAll('p').forEach(p => {
+    //       p.style.display = 'none';
+    //     })
+    //     modalContent.insertAdjacentHTML("beforeend", `<p>${en.thanks}</p>`)
 
-        // Reset the form on success
-        formFields.forEach(field => {
-          if (field.getAttribute("type") !== "submit" && field.offsetParent !== null) {
-            field.value = "";
-            field.classList.remove("valid");
-            field.classList.remove("invalid");
-          }
-        });
-      })
-      .catch(err => {
-        tent.insertAdjacentHTML("beforeend", `<p>${ar.error}</p>`)
-        modalContent.querySelector('img').style.display = 'none';
-        modalContent.querySelectorAll('p').forEach(p => {
-          p.style.display = 'none';
-        })
-        modalContent.insertAdjacentHTML("beforeend", `<p>${en.error}</p>`)
-      })
+    //     // Reset the form on success
+    //     formFields.forEach(field => {
+    //       if (field.getAttribute("type") !== "submit" && field.offsetParent !== null) {
+    //         field.value = "";
+    //         field.classList.remove("valid");
+    //         field.classList.remove("invalid");
+    //       }
+    //     });
+    //   })
+    //   .catch(err => {
+    //     tent.insertAdjacentHTML("beforeend", `<p>${ar.error}</p>`)
+    //     modalContent.querySelector('img').style.display = 'none';
+    //     modalContent.querySelectorAll('p').forEach(p => {
+    //       p.style.display = 'none';
+    //     })
+    //     modalContent.insertAdjacentHTML("beforeend", `<p>${en.error}</p>`)
+    //   })
   }
 });
 
